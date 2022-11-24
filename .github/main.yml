@@ -1,0 +1,29 @@
+---
+name: CI
+
+on:
+  workflow_dispatch:
+  
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  Packer:
+    runs-on: ubuntu-latest
+    name: Packer Build
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        
+      - name: Azure Login
+        uses: Azure/login@v1.4.6
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Build image
+        uses: hashicorp/packer-github-actions@v0.2.0
+        with:
+          command: build
+          target: packer/packer_azure.pkr.hcl          
