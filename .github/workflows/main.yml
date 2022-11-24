@@ -26,4 +26,9 @@ jobs:
         uses: hashicorp/packer-github-actions@v0.2.0
         with:
           command: build
-          target: packer/packer_azure.pkr.hcl          
+          target: packer/packer_azure.pkr.hcl 
+        env:
+          ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
