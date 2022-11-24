@@ -19,10 +19,6 @@ variable "location" {
   default = "East US 2"
 }
 
-locals {
-  timestamp = regex_replace(timestamp(), "[- TZ:]", "")
-}
-
 source "azure-arm" "nginx" {
   azure_tags = {
     owner = "Adenn Tumba"
