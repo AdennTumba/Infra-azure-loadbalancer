@@ -25,10 +25,10 @@ source "azure-arm" "nginx" {
     dept  = "Engineering"
     task  = "Image deployment"
   }
-  client_id                         = var.client_id
-  client_secret                     = var.client_secret
-  subscription_id                   = var.subscription_id
-  tenant_id                         = var.tenant_id
+  client_id                         = "${var.client_id}"
+  client_secret                     = "${var.client_secret}"
+  subscription_id                   = "${var.subscription_id }"
+  tenant_id                         = "${var.ctenant_id}"
   location                          = var.location
   image_offer                       = "UbuntuServer"
   image_publisher                   = "Canonical"
